@@ -1,0 +1,15 @@
+rubocop:
+  config_file: .rubocop.yml
+  version: 1.19.0
+
+scss:
+  enabled: false
+
+javascript:
+  enabled: false
+
+coffeescript:
+  enabled: false
+
+jshint:
+  enabled: false
