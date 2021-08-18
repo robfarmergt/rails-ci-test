@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/2.7.2-browsers
+      - image: cimg/ruby:2.7.2-stretch-node
     executor: ruby/default
     steps:
       - checkout
