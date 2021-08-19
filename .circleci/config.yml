@@ -38,12 +38,13 @@ jobs:
           name: Running tests
           command: >
             TESTOUTPATH="/tmp/test-results/rspec"
-            mkdir -p /tmp/test-results/rspec
+            mkdir -p ~/rspec
 
             TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
-            bundle exec rspec -r rspec_junit_formatter $TESTFILES --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec/results.xml --format progress
-# We use workflows to orchestrate the jobs that we declared above.
+            bundle exec rspec -r rspec_junit_formatter $TESTFILES --profile 10 --format RspecJunitFormatter --out ~/rspec/results.xml --format progress
+      - store_test_results
+          - path: ~/rspec
 workflows:
   version: 2
   test:     # The name of our workflow is "build_and_test"
