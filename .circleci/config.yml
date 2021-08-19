@@ -44,7 +44,17 @@ jobs:
           name: Database setup
           command: bundle exec rails db:schema:load --trace
       # Run rspec in parallel
-      - ruby/rspec-test
+      - run:
+          name: Running tests
+          command: >
+            TESTOUTPATH=/tmp/test-results/rspec
+            mkdir -p $TESTOUTPATH
+
+            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests
+            split --split-by=timings)
+
+            bundle exec rspec $TESTFILES -r rspec_junit_formatter --profile 10 --format RspecJunitFormatter
+            --out $TESTOUTPATH/results.xml --format progress
 # We use workflows to orchestrate the jobs that we declared above.
 workflows:
   version: 2
