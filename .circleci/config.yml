@@ -9,7 +9,4 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: gem install bundler && bundle update --bundler
-      - ruby/bundle-install
+      - ruby/install-deps
