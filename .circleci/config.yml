@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Running tests
           command: >
-            TESTOUTPATH=/tmp/test-results/rspec
+            TESTOUTPATH="/tmp/test-results/rspec"
             mkdir -p $TESTOUTPATH
 
             TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests
