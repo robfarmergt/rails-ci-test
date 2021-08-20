@@ -37,8 +37,10 @@ jobs:
       - run:
           name: Running tests
           command: >
-            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
             mkdir -p ~/rspec
+
+            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
             bundle exec rspec -r rspec_junit_formatter $TESTFILES --profile 10 --format RspecJunitFormatter --out ~/rspec/results.xml --format progress --color
       - store_test_results:
           path: ~/rspec
