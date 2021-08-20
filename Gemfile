@@ -10,11 +10,11 @@ gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
 gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.4", require: false
-gem "rubocop", "~> 1.5.2"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec_junit_formatter"
   gem "rspec-rails"
 end
 
@@ -25,6 +25,8 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem "rack-mini-profiler", "~> 2.0"
   gem "listen", "~> 3.3"
+  gem "rubocop", "1.5.2"
+  gem "rubocop-rails", "2.9.1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
