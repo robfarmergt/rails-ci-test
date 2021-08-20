@@ -26,6 +26,7 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   gem "listen", "~> 3.3"
   gem "rubocop", "1.5.2"
+  gem "rubocop-rails", "2.9.1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
