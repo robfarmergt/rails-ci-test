@@ -1,9 +1,33 @@
+require: rubocop-rails
+
+AllCops:
+  Include:
+  - "**/*.gemspec"
+  - "**/*.podspec"
+  - "**/*.jbuilder"
+  - "**/*.rake"
+  - "**/*.opal"
+  - "**/*.rb"
+  - "**/Gemfile"
+  - "**/Rakefile"
+  - "**/Capfile"
+  - "**/Guardfile"
+  - "**/Podfile"
+  - "**/Thorfile"
+  - "**/Vagrantfile"
+  - "**/Berksfile"
+  - "**/Cheffile"
+  - "**/Vagabondfile"
+  Exclude:
+  - "vendor/**/*"
+  - "db/schema.rb"
+  DisplayCopNames: false
+  StyleGuideCopsOnly: false
+  TargetRubyVersion: 2.7.2
+
 Style/StringLiterals:
   Description: 'Checks if uses of quotes match the configured preference.'
-  StyleGuide: '#consistent-string-literals'
   Enabled: true
-  VersionAdded: '0.9'
-  VersionChanged: '0.36'
   EnforcedStyle: double_quotes
   SupportedStyles:
     - single_quotes
@@ -11,3 +35,7 @@ Style/StringLiterals:
   # If `true`, strings which span multiple lines using `\` for continuation must
   # use the same type of quotes on each line.
   ConsistentQuotesInMultiline: false
+
+Style/Documentation:
+  Description: Document classes and non-namespace modules.
+  Enabled: false
